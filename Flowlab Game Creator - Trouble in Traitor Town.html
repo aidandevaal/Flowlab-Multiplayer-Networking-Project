@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://flowlab.io/game/play/1707501 -->
+<html style="--themeBgColor: #222; --themeFgColor: #500; --themeTextColor: #FFF; --themeFont: Anton; --themeDescAlign: left; --gameWidth: 1024px; --gameWidthPadded: 1044px; --themeRadius: 6px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Flowlab Game Creator - Trouble in Traitor Town</title>
+  <meta name="description" content="Flowlab is an online game creator.  Make your own games to share with friends.">
+  <meta name="author" content="Ken Railey">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="follow">
+
+  <!-- Soft UI Design System -->
+  <link type="text/css" href="./Flowlab Game Creator - Trouble in Traitor Town_files/soft-design-system-pro.min.css" rel="stylesheet">
+
+    <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@flowlabio">
+  <meta name="twitter:title" content="Trouble in Traitor Town">
+  <meta name="twitter:description" content="## How To Play - WASD to move - E to use pickaxe (weapon) - (If Traitor) - F to prove Traitor  ## Startup - 6 players must be fully connected for the game to begin. - Once 6 players have joined, each player must walk into a log. - Once you walk into a l...">
+  <meta name="twitter:image" content="https://flowlab.io/assets/users/10/user_1029736/game_1707501/screenshot.png">
+ 
+  <meta property="og:title" content="Flowlab.io - Trouble in Traitor Town"> 
+  <meta property="og:type" content="game"> 
+  <meta property="og:image" content="/assets/users/10/user_1029736/game_1707501/screenshot.png"> 
+  <meta property="og:url" content="http://flowlab.io/game/play/1707501"> 
+  <meta property="og:site_name" content="Flowlab.io"> 
+  <meta property="fb:app_id" content="269904359790196"> 
+
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://flowlab.io/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link href="./Flowlab Game Creator - Trouble in Traitor Town_files/css" rel="stylesheet">
+    <style>
+  :root { 
+    --gameWidth: 1024px;
+    --gameHeight: 576px;
+    --gameWidthPadded: 1044px;
+  }
+  </style>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/game_screen.js"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/pubnub.4.21.2.js"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/rtc-pubnub.js"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/rtc-xirsys.js"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/flowAudio.js"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/popups.js"></script>
+
+  <link rel="stylesheet" href="./Flowlab Game Creator - Trouble in Traitor Town_files/fl-modal.css">
+  <link rel="stylesheet" href="./Flowlab Game Creator - Trouble in Traitor Town_files/game.css" crossorigin="anonymous">
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<script type="text/javascript" src="./Flowlab Game Creator - Trouble in Traitor Town_files/howler.min.js"></script>
+	<script type="text/javascript" src="./Flowlab Game Creator - Trouble in Traitor Town_files/pako.min.js"></script>
+	<script type="text/javascript" src="./Flowlab Game Creator - Trouble in Traitor Town_files/FileSaver.min.js"></script>
+
+    <script type="text/javascript" src="./Flowlab Game Creator - Trouble in Traitor Town_files/4708.js"></script>
+   <script>
+    var min_game_w = 512
+    var game_id = 1707501;
+    var user_id = 0;
+    var dev_id = 1029736;
+    var page_theme = JSON.parse("{\"bg_color\":\"#222\",\"fg_color\":\"#500\",\"text_color\":\"#FFF\",\"bg_img\":false,\"hide_nav\":false,\"font_name\":\"Anton\",\"font_id\":\"Anton\"}");
+    var favorited = false;
+    var game_md = `## How To Play
+- WASD to move
+- E to use pickaxe (weapon)
+- (If Traitor) - F to prove Traitor
+
+## Startup
+- 6 players must be fully connected for the game to begin.
+- Once 6 players have joined, each player must walk into a log.
+- Once you walk into a log, you will be given a role.
+- Once everyone has been given a role, the game may begin.
+- The red number in the top left is the Traitor count.
+- The green number in the top right is the Citizen count.
+- There is a 30 second timer before your pickaxe can be used.
+
+## The Main Idea
+This is a party game, the Traitors must try and eliminate the Citizens and the Citizens have to figure out who the Traitors are and kill them first.
+
+## Worth Noting
+- It isn't guaranteed that there will be Traitors in every game
+- Be careful not to use your pickaxe too close to walls or it could bounce back and hit you
+- This game heavily relies on player cooperation, meaning no "Random Deathmatch" (killing with no decent reasoning) and avoiding grouping as much as possible
+` 
+    var show_desc = true;
+    // window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, { capture: false, passive: false });
+    if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+      var meta = document.getElementById ("viewport");
+      meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+    }
+    //$(function() {
+    //document.body.style.zoom = 1 / window.devicePixelRatio;
+    //});
+    //function setZoom(){
+    //window.body.style.zoom = 1 / window.devicePixelRatio;
+    //};
+    //$(body).load(setZoom);
+	</script>
+  <!-- Google tag (gtag.js) -->
+<script async="" src="./Flowlab Game Creator - Trouble in Traitor Town_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2D08B2LNWJ');
+</script>
+	
+<link id="undefined" rel="stylesheet" type="text/css" href="./Flowlab Game Creator - Trouble in Traitor Town_files/css(1)" media="all"></head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark z-index-3 py-2" id="fl-navbar" style="visibility: visible; display: block;">
+  <div class="container">
+    <a class="navbar-brand img-fluid" href="https://flowlab.io/" rel="tooltip" title="Flowlab game maker" data-placement="bottom" style="padding-top:7px; padding-bottom:7px;">
+      <img src="./Flowlab Game Creator - Trouble in Traitor Town_files/logo.png" height="32" alt="Flowlab game maker" id="flowlab-logo">
+    </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+          <span class="navbar-toggler-bar bar1"></span>
+          <span class="navbar-toggler-bar bar2"></span>
+          <span class="navbar-toggler-bar bar3"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+        <ul class="navbar-nav navbar-nav-hover mx-auto">
+          <li class="nav-item mx-2">
+            <a href="https://flowlab.io/games" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " role="button">
+              Games
+            </a>
+          </li>
+
+          <li class="nav-item mx-2">
+            <a href="https://flowlab.io/resources" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " role="button">
+              Resources
+            </a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a id="navbar-community" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" data-bs-toggle="dropdown" role="button">
+              Community
+              <img src="./Flowlab Game Creator - Trouble in Traitor Town_files/down-arrow-white.svg" alt="down-arrow" class="arrow ms-1 opacity-5">
+            </a>
+            <div class="dropdown-menu dropdown-menu-animation dropdown-lg mt-1">
+                <a class="dropdown-item d-block" href="https://community.flowlab.io/session/sso?return_path=https://community.flowlab.io">
+                  <div class="row p-2 gx-0">
+                    <div class="col-2">
+                      <svg fill="#8692a9" width="30" height="30" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg"><path d="M12.103 0C18.666 0 24 5.485 24 11.997c0 6.51-5.33 11.99-11.9 11.99L0 24V11.79C0 5.28 5.532 0 12.103 0zm.116 4.563a7.395 7.395 0 0 0-6.337 3.57 7.247 7.247 0 0 0-.148 7.22L4.4 19.61l4.794-1.074a7.424 7.424 0 0 0 8.136-1.39 7.256 7.256 0 0 0 1.737-7.997 7.375 7.375 0 0 0-6.84-4.585h-.008z"></path></svg>
+                    </div>
+                    <div class="col">
+                      <div class="fw-bold">Community Forum</div>
+                      <div class="opacity-5">Questions &amp; answers or share your work</div>
+                    </div>
+                  </div>
+                </a>
+
+                <a class="dropdown-item d-block" href="https://discord.gg/XxVW8Kc6p6" target="_blank">
+                  <div class="row p-2 gx-0">
+                    <div class="col-2">
+                      <svg fill="#8692a9" width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path></svg>
+                    </div>
+                    <div class="col">
+                      <div class="fw-bold">Flowlab Discord</div>
+                      <div class="opacity-5">A community to discuss game creation</div>
+                    </div>
+                  </div>
+                </a>
+
+
+                <a class="dropdown-item d-block" href="https://flowlab.io/lab/blog/">
+                  <div class="row p-2 gx-0">
+                    <div class="col-2">
+                      <svg fill="#8692a9" width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"></path></svg>
+                    </div>
+                    <div class="col">
+                      <div class="fw-bold">Blog</div>
+                      <div class="opacity-5">Articles about game development</div>
+                    </div>
+                  </div>
+                </a>
+
+            </div>
+          </li>
+
+          <li class="nav-item mx-2">
+            <a href="https://flowlab.io/pricing" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " role="button">
+              Pricing
+            </a>
+          </li>
+
+          <li class="nav-item mx-2">
+            <a href="https://flowlab.io/education" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " role="button">
+              Teachers
+            </a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="https://flowlab.io/users/sign_up" class="btn btn-sm  bg-gradient-info  btn-round mb-0 me-1 px-4" style="margin-top:0.2rem;" role="button">Get Started Free</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://flowlab.io/users/sign_in" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center " role="button">
+              Log In
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>
+<!-- End Navbar -->
+
+  
+
+<div id="game-page">
+  <div id="game-frame" class="default-frame" style="width: 1044px;">
+
+    <div id="builder" oncontextmenu="return false;" style="width: 1024px; height: 576px; cursor: auto;"><canvas width="2048" height="1152" style="transform: translateZ(0px); width: 1024px; height: 576px;"></canvas></div>
+
+    <div id="game_info" class="padded_game_w">
+      <h3 class="_subheader" id="game_title" style="padding-top:4px;color:var(--lightTextColor);">Trouble in Traitor Town</h3>
+
+      <div id="game_author" style="color:var(--lightTextColor);">
+          <a href="https://flowlab.io/users/profile/1029736" tabindex="-1">aidan132</a>
+      </div>
+
+      <div class="container" style="color:var(--lightTextColor);">
+        <div class="row">
+          <div class="col">
+            <div class="container icon-stats">
+              <div class="row gx-0 px-0 flex-nowrap">
+                <div class="col">
+                  <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256"><path d="M234.49,111.07,90.41,22.94A20,20,0,0,0,60,39.87V216.13a20,20,0,0,0,30.41,16.93l144.08-88.13a19.82,19.82,0,0,0,0-33.86ZM84,208.85V47.15L216.16,128Z"></path></svg>
+                </div>
+                <div class="col">
+                  <div class="game-stats">
+                    <div id="play-1" style="transform: translateY(-100%);">1622</div>
+                    <div id="play-2" style="transform: none;">1623</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="container icon-stats">
+              <div class="row gx-0 px-0 flex-nowrap">
+                <div class="col">
+                  <a href="javascript:;" class="svg-link add-to-favorite" id="like-btn" data-bs-toggle="modal" data-bs-target="#signupModal">
+                      <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 48 48">
+                        <path d="M38.8385 4.09425C37.8367 3.11329 36.6472 2.33511 35.3381 1.80419C34.0289 1.27327 32.6257 1 31.2086 1C29.7914 1 28.3882 1.27327 27.079 1.80419C25.7699 2.33511 24.5804 3.11329 23.5786 4.09425L21.4995 6.12916L19.4204 4.09425C17.3968 2.11369 14.6522 1.00103 11.7904 1.00103C8.92861 1.00103 6.18403 2.11369 4.16043 4.09425C2.13684 6.07481 1 8.76103 1 11.562C1 14.3629 2.13684 17.0491 4.16043 19.0297L6.23955 21.0646L21.4995 36L36.7594 21.0646L38.8385 19.0297C39.8408 18.0492 40.6359 16.885 41.1783 15.6037C41.7208 14.3223 42 12.9489 42 11.562C42 10.175 41.7208 8.80161 41.1783 7.52027C40.6359 6.23894 39.8408 5.07476 38.8385 4.09425Z"></path>
+                      </svg>
+                    </a>
+                </div>
+                <div class="col">
+                  <div class="game-stats">
+                      <div id="like-1" style="transform: none;">1</div>
+                      <div id="like-2" style="transform: translateY(100%);">2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <a href="javascript:;" id="qr-code" class="svg-link" onclick="flShowModal(&#39;modals/qr.html&#39;);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256"><path d="M100,36H56A20,20,0,0,0,36,56v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,100,36ZM96,96H60V60H96Zm4,40H56a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,100,136Zm-4,60H60V160H96ZM200,36H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Zm-4,60H160V60h36Zm-60,76V148a12,12,0,0,1,24,0v24a12,12,0,0,1-24,0Zm84-8a12,12,0,0,1-12,12H196v32a12,12,0,0,1-12,12H148a12,12,0,0,1,0-24h24V148a12,12,0,0,1,24,0v4h12A12,12,0,0,1,220,164Z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Multiplayer Status -->
+    <div class="w-100 text-center opacity-8" id="net-stats-container" style="display: block;">
+      <div id="connection-status">
+        <svg id="connect-await" class="rotate" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#8392ab" viewBox="0 0 256 256" style="display: inline;"><path d="M128,76a52,52,0,1,0,52,52A52.06,52.06,0,0,0,128,76Zm0,80a28,28,0,1,1,28-28A28,28,0,0,1,128,156Zm92-27.21v-1.58l14-17.51a12,12,0,0,0,2.23-10.59A111.75,111.75,0,0,0,225,71.89,12,12,0,0,0,215.89,66L193.61,63.5l-1.11-1.11L190,40.1A12,12,0,0,0,184.11,31a111.67,111.67,0,0,0-27.23-11.27A12,12,0,0,0,146.3,22L128.79,36h-1.58L109.7,22a12,12,0,0,0-10.59-2.23A111.75,111.75,0,0,0,71.89,31.05,12,12,0,0,0,66,40.11L63.5,62.39,62.39,63.5,40.1,66A12,12,0,0,0,31,71.89,111.67,111.67,0,0,0,19.77,99.12,12,12,0,0,0,22,109.7l14,17.51v1.58L22,146.3a12,12,0,0,0-2.23,10.59,111.75,111.75,0,0,0,11.29,27.22A12,12,0,0,0,40.11,190l22.28,2.48,1.11,1.11L66,215.9A12,12,0,0,0,71.89,225a111.67,111.67,0,0,0,27.23,11.27A12,12,0,0,0,109.7,234l17.51-14h1.58l17.51,14a12,12,0,0,0,10.59,2.23A111.75,111.75,0,0,0,184.11,225a12,12,0,0,0,5.91-9.06l2.48-22.28,1.11-1.11L215.9,190a12,12,0,0,0,9.06-5.91,111.67,111.67,0,0,0,11.27-27.23A12,12,0,0,0,234,146.3Zm-24.12-4.89a70.1,70.1,0,0,1,0,8.2,12,12,0,0,0,2.61,8.22l12.84,16.05A86.47,86.47,0,0,1,207,166.86l-20.43,2.27a12,12,0,0,0-7.65,4,69,69,0,0,1-5.8,5.8,12,12,0,0,0-4,7.65L166.86,207a86.47,86.47,0,0,1-10.49,4.35l-16.05-12.85a12,12,0,0,0-7.5-2.62c-.24,0-.48,0-.72,0a70.1,70.1,0,0,1-8.2,0,12.06,12.06,0,0,0-8.22,2.6L99.63,211.33A86.47,86.47,0,0,1,89.14,207l-2.27-20.43a12,12,0,0,0-4-7.65,69,69,0,0,1-5.8-5.8,12,12,0,0,0-7.65-4L49,166.86a86.47,86.47,0,0,1-4.35-10.49l12.84-16.05a12,12,0,0,0,2.61-8.22,70.1,70.1,0,0,1,0-8.2,12,12,0,0,0-2.61-8.22L44.67,99.63A86.47,86.47,0,0,1,49,89.14l20.43-2.27a12,12,0,0,0,7.65-4,69,69,0,0,1,5.8-5.8,12,12,0,0,0,4-7.65L89.14,49a86.47,86.47,0,0,1,10.49-4.35l16.05,12.85a12.06,12.06,0,0,0,8.22,2.6,70.1,70.1,0,0,1,8.2,0,12,12,0,0,0,8.22-2.6l16.05-12.85A86.47,86.47,0,0,1,166.86,49l2.27,20.43a12,12,0,0,0,4,7.65,69,69,0,0,1,5.8,5.8,12,12,0,0,0,7.65,4L207,89.14a86.47,86.47,0,0,1,4.35,10.49l-12.84,16.05A12,12,0,0,0,195.88,123.9Z"></path></svg>
+        <svg id="connect-fail" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ea0606" viewBox="0 0 256 256" style="display: none;"><path d="M240.26,186.1,152.81,34.23h0a28.74,28.74,0,0,0-49.62,0L15.74,186.1a27.45,27.45,0,0,0,0,27.71A28.31,28.31,0,0,0,40.55,228h174.9a28.31,28.31,0,0,0,24.79-14.19A27.45,27.45,0,0,0,240.26,186.1Zm-20.8,15.7a4.46,4.46,0,0,1-4,2.2H40.55a4.46,4.46,0,0,1-4-2.2,3.56,3.56,0,0,1,0-3.73L124,46.2a4.77,4.77,0,0,1,8,0l87.44,151.87A3.56,3.56,0,0,1,219.46,201.8ZM116,136V104a12,12,0,0,1,24,0v32a12,12,0,0,1-24,0Zm28,40a16,16,0,1,1-16-16A16,16,0,0,1,144,176Z"></path></svg>
+        <svg id="connect-ok" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#82d616" viewBox="0 0 256 256" style="display: none;"><path d="M176.49,95.51a12,12,0,0,1,0,17l-56,56a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L112,143l47.51-47.52A12,12,0,0,1,176.49,95.51ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Z"></path></svg>
+        <small id="connection-info">Waiting for Players</small>
+      </div>
+    </div>
+
+  <div id="itch"></div>
+  <div id="appstore_links"></div>
+
+  <div id="description_data" class="padded_game_w" style="display: block;"><h2>How To Play</h2>
+
+<ul>
+<li>WASD to move</li>
+<li>E to use pickaxe (weapon)</li>
+<li>(If Traitor) - F to prove Traitor</li>
+</ul>
+
+<h2>Startup</h2>
+
+<ul>
+<li>6 players must be fully connected for the game to begin.</li>
+<li>Once 6 players have joined, each player must walk into a log.</li>
+<li>Once you walk into a log, you will be given a role.</li>
+<li>Once everyone has been given a role, the game may begin.</li>
+<li>The red number in the top left is the Traitor count.</li>
+<li>The green number in the top right is the Citizen count.</li>
+<li>There is a 30 second timer before your pickaxe can be used.</li>
+</ul>
+
+<h2>The Main Idea</h2>
+
+<p>This is a party game, the Traitors must try and eliminate the Citizens and the Citizens have to figure out who the Traitors are and kill them first.</p>
+
+<h2>Worth Noting</h2>
+
+<ul>
+<li>It isn't guaranteed that there will be Traitors in every game</li>
+<li>Be careful not to use your pickaxe too close to walls or it could bounce back and hit you</li>
+<li>This game heavily relies on player cooperation, meaning no "Random Deathmatch" (killing with no decent reasoning) and avoiding grouping as much as possible</li>
+</ul>
+</div>
+
+  <div class="btn-toolbar padded_game_w" id="toolbar" style="display: block;">
+        <a href="javascript:;" id="edit_btn" onclick="openEditor();" class="theme-btn"> 
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256"><path d="M230.14,70.54,185.46,25.85a20,20,0,0,0-28.29,0L33.86,149.17A19.85,19.85,0,0,0,28,163.31V208a20,20,0,0,0,20,20H92.69a19.86,19.86,0,0,0,14.14-5.86L230.14,98.82a20,20,0,0,0,0-28.28ZM93,180l71-71,11,11-71,71ZM76,163,65,152l71-71,11,11ZM52,173l15.51,15.51h0L83,204H52ZM192,103,153,64l18.34-18.34,39,39Z"></path></svg>
+          Editor
+        </a>
+  </div>
+
+
+  <!-- a bit of space at the bottom -->
+  <div class="mb-6">&nbsp;</div>
+  
+  <!-- Import -->
+  <div class="modal fade" id="import-modal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable w-100">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="classSettingsModalLabel">
+            Import Behaviors
+          </h5>
+        </div>
+        <div class="modal-body">
+          <div class="mb-4 fw-bold">
+            <div class="mb-3 mt-0">
+              <label>Behavior Data</label>
+              <textarea class="form-control" rows="6" id="behavior-json"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" data-bs-dismiss="modal" class="btn btn-info" onclick="submitBehaviors()">Import</button>
+          </div>
+          
+        </div>  
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable w-100">
+        <div id="sign-up" class="w-100">Sign Up</div> 
+      </div>
+    </div>
+
+  <script type="text/javascript">
+    flowAudio = new FlowAudio();
+    var fl_pv = 0;
+
+    var rtcPubNub = new RtcPubNub();
+    var rtcXirsys = new RtcXirsys();
+
+    var flowlabInitObj = {
+    rootPath: "/html5/bin", 
+      parameters: { 
+        auth_token: "",
+        game: "1707501",
+        asset_root: 'assets',
+        events: '',
+        privacy: "0",
+        splash: "student",
+        splash_bg: null,
+        splash_bar: null,
+        splash_logo: false,
+        splash_logo_x: null,
+        splash_logo_y: null,
+        uid: "",
+        uname: "",
+        skin: "",
+        mode: "play",
+        chrome: !!window.chrome,
+        membership: "",
+        send_events: true,
+        viewW: "1024",
+        viewH: "576"
+      }
+    };
+    lime.embed ("Flowlab", "builder", 0, 0, flowlabInitObj);
+
+  //var pageTheme = {"bg_color":"#222","fg_color":"#500","text_color":"#FFF","bg_img":false,"hide_nav":false,"font_name":"Anton","font_id":"Anton"};
+  </script>
+</div>
+
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/popper.min.js" type="text/javascript"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/bootstrap.min.js" type="text/javascript"></script>
+  <script src="./Flowlab Game Creator - Trouble in Traitor Town_files/soft-design-system-pro.min.js" type="text/javascript"></script>
+  <script defer="" src="./Flowlab Game Creator - Trouble in Traitor Town_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;892b7b2d0a9e8420&quot;,&quot;version&quot;:&quot;2024.4.1&quot;,&quot;token&quot;:&quot;3dcf4975bb0f478c9b9e335118ffd8f6&quot;}" crossorigin="anonymous"></script>
+
+
+</body></html>
